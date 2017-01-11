@@ -57,44 +57,14 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
+	var _App = __webpack_require__(/*! ./components/App */ 179);
+	
+	var _App2 = _interopRequireDefault(_App);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Header = function Header(_ref) {
-	  var message = _ref.message;
-	
-	  return _react2.default.createElement(
-	    'h2',
-	    { className: 'Header text-center' },
-	    message
-	  );
-	};
-	
-	//This Creates the App Component
-	var App = function App() {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'App' },
-	    _react2.default.createElement(Header, { message: 'Naming Contests!' }),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      '...'
-	    )
-	  );
-	};
-	
-	//This is the Props validation
-	Header.propTypes = {
-	  message: _react2.default.PropTypes.string
-	};
-	
-	//This allows us to implement default values
-	Header.defaultProps = {
-	  message: 'Hello!'
-	};
-	
 	//This renders the App Component to a location with ID of root in our view file.
-	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
+	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ },
 /* 1 */
@@ -22095,6 +22065,76 @@
 	
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
+
+/***/ },
+/* 178 */
+/*!**********************************!*\
+  !*** ./src/components/Header.js ***!
+  \**********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Header = function Header(_ref) {
+	  var message = _ref.message;
+	
+	  return _react2.default.createElement(
+	    "h2",
+	    { className: "Header text-center" },
+	    message
+	  );
+	};
+	
+	exports.default = Header;
+
+/***/ },
+/* 179 */
+/*!*******************************!*\
+  !*** ./src/components/App.js ***!
+  \*******************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Header = __webpack_require__(/*! ./Header */ 178);
+	
+	var _Header2 = _interopRequireDefault(_Header);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	//This Creates the App Component
+	var App = function App() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'App' },
+	    _react2.default.createElement(_Header2.default, { message: 'Naming Contests via Modules!' }),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      '...'
+	    )
+	  );
+	};
+	
+	exports.default = App;
 
 /***/ }
 /******/ ]);
