@@ -65,6 +65,15 @@
 	
 	//This renders the App Component to a location with ID of root in our view file.
 	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
+	
+	//Removing component from the DOM and rendering new element
+	// setTimeout(() => {
+	//   ReactDom.render(
+	//     <h2>........</h2>,
+	//     document.getElementById('root')
+	//   );
+	//
+	// }, 4000);
 
 /***/ },
 /* 1 */
@@ -22142,8 +22151,18 @@
 	    };
 	    return _this;
 	  }
+	  //This suggests the component Mounted to the DOM
+	
 	
 	  _createClass(App, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {}
+	    //This suggests the component is about to be unmounted from the DOM
+	
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {}
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(

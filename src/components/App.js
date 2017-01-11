@@ -9,6 +9,13 @@ class App extends React.Component {
       pageHeader: 'Naming Contests',
     };
   }
+  //This suggests the component Mounted to the DOM
+  componentDidMount(){
+  }
+  //This suggests the component is about to be unmounted from the DOM
+  componentWillUnmount() {
+  }
+
   render() {
     return (
       <div className="App">
