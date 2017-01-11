@@ -59,23 +59,38 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//This Creates the App Component
-	var App = function App(props) {
+	var Header = function Header(_ref) {
+	  var message = _ref.message;
+	
 	  return _react2.default.createElement(
 	    'h2',
-	    { className: 'text-center' },
-	    props.headerMessage
+	    { className: 'Header text-center' },
+	    message
+	  );
+	};
+	
+	//This Creates the App Component
+	var App = function App() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'App' },
+	    _react2.default.createElement(Header, { message: 'Naming Contests!' }),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      '...'
+	    )
 	  );
 	};
 	
 	//This is the Props validation
-	App.propTypes = {
-	  headerMessage: _react2.default.PropTypes.string
+	Header.propTypes = {
+	  message: _react2.default.PropTypes.string
 	};
 	
 	//This allows us to implement default values
-	App.defaultProps = {
-	  headerMessage: 'Hello!'
+	Header.defaultProps = {
+	  message: 'Hello!'
 	};
 	
 	//This renders the App Component to a location with ID of root in our view file.
