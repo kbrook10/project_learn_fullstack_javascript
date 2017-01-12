@@ -61,7 +61,7 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _testData = __webpack_require__(/*! ./testData.json */ 180);
+	var _testData = __webpack_require__(/*! ./testData.json */ 181);
 	
 	var _testData2 = _interopRequireDefault(_testData);
 	
@@ -22102,7 +22102,7 @@
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _ContestPreview = __webpack_require__(/*! ./ContestPreview */ 181);
+	var _ContestPreview = __webpack_require__(/*! ./ContestPreview */ 180);
 	
 	var _ContestPreview2 = _interopRequireDefault(_ContestPreview);
 	
@@ -22195,6 +22195,44 @@
 
 /***/ },
 /* 180 */
+/*!******************************************!*\
+  !*** ./src/components/ContestPreview.js ***!
+  \******************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ContestPreview = function ContestPreview(contest) {
+	    return _react2.default.createElement(
+	        "div",
+	        { className: "ContestPreview" },
+	        _react2.default.createElement(
+	            "div",
+	            { className: "category-name" },
+	            contest.categoryName
+	        ),
+	        _react2.default.createElement(
+	            "div",
+	            { className: "contest-name" },
+	            contest.contestName
+	        )
+	    );
+	};
+	
+	exports.default = ContestPreview;
+
+/***/ },
+/* 181 */
 /*!***************************!*\
   !*** ./src/testData.json ***!
   \***************************/
@@ -22224,44 +22262,6 @@
 			}
 		]
 	};
-
-/***/ },
-/* 181 */
-/*!******************************************!*\
-  !*** ./src/components/ContestPreview.js ***!
-  \******************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var ContestPreview = function ContestPreview(contest) {
-	    return _react2.default.createElement(
-	        "div",
-	        { className: "ContestPreview" },
-	        _react2.default.createElement(
-	            "div",
-	            null,
-	            contest.categoryName
-	        ),
-	        _react2.default.createElement(
-	            "div",
-	            null,
-	            contest.contestName
-	        )
-	    );
-	};
-	
-	exports.default = ContestPreview;
 
 /***/ }
 /******/ ]);
