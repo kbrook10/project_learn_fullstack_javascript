@@ -8,10 +8,21 @@ class App extends React.Component {
     super(props);
     this.state = {
       pageHeader: 'Naming Contests',
+      contests: [],
     };
   }
   //This suggests the component Mounted to the DOM
   componentDidMount(){
+    //ajax...
+    fetch('/api/contests')
+      .then(resp => resp.json())
+      .then(resp => {
+        // console.log(resp.contests);
+        this.setState({
+          contests: resp.contests,
+        });
+      })
+      .catch(console.error);
   }
   //This suggests the component is about to be unmounted from the DOM
   componentWillUnmount() {
@@ -22,8 +33,8 @@ class App extends React.Component {
       <div className="App">
         <Header message={ this.state.pageHeader } />
         <div>
-          {this.props.contests.map(contest =>
-            <ContestPreview {...contest} />
+          {this.state.contests.map(contest =>
+            <ContestPreview key={contest.id} {...contest} />
           )}
         </div>
       </div>

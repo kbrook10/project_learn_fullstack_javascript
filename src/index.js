@@ -5,7 +5,7 @@ import data from './testData.json';
 
 //This renders the App Component to a location with ID of root in our view file.
 ReactDom.render(
-    <App contests={ data.contests } />,
+    <App />,
     document.getElementById('root')
 );
 
