@@ -68,7 +68,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	//This renders the App Component to a location with ID of root in our view file.
-	_reactDom2.default.render(_react2.default.createElement(_App2.default, { contests: _testData2.default.contests }), document.getElementById('root'));
+	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 	
 	//Removing component from the DOM and rendering new element
 	// setTimeout(() => {
@@ -22092,6 +22092,8 @@
 	  value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(/*! react */ 1);
@@ -22105,6 +22107,10 @@
 	var _ContestPreview = __webpack_require__(/*! ./ContestPreview */ 180);
 	
 	var _ContestPreview2 = _interopRequireDefault(_ContestPreview);
+	
+	var _testData = __webpack_require__(/*! ../testData.json */ 181);
+	
+	var _testData2 = _interopRequireDefault(_testData);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22124,7 +22130,8 @@
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
 	    _this.state = {
-	      pageHeader: 'Naming Contests'
+	      pageHeader: 'Naming Contests',
+	      contests: []
 	    };
 	    return _this;
 	  }
@@ -22133,7 +22140,11 @@
 	
 	  _createClass(App, [{
 	    key: 'componentDidMount',
-	    value: function componentDidMount() {}
+	    value: function componentDidMount() {
+	      this.setState({
+	        contests: _testData2.default.contests
+	      });
+	    }
 	    //This suggests the component is about to be unmounted from the DOM
 	
 	  }, {
@@ -22149,8 +22160,8 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          this.props.contests.map(function (contest) {
-	            return _react2.default.createElement(_ContestPreview2.default, contest);
+	          this.state.contests.map(function (contest) {
+	            return _react2.default.createElement(_ContestPreview2.default, _extends({ key: contest.id }, contest));
 	          })
 	        )
 	      );
