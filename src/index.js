@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import App from './components/App';
 import data from './testData.json';
-console.log(data);
 
 //This renders the App Component to a location with ID of root in our view file.
 ReactDom.render(
