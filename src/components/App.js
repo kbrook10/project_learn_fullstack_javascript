@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './Header';
 import ContestPreview from './ContestPreview';
-import data from '../testData.json';
 
 //This Creates the App Component
 class App extends React.Component {
@@ -14,9 +13,16 @@ class App extends React.Component {
   }
   //This suggests the component Mounted to the DOM
   componentDidMount(){
-    this.setState({
-      contests: data.contests,
-    });
+    //ajax...
+    fetch('/api/contests')
+      .then(resp => resp.json())
+      .then(resp => {
+        // console.log(resp.contests);
+        this.setState({
+          contests: resp.contests,
+        });
+      })
+      .catch(console.error);
   }
   //This suggests the component is about to be unmounted from the DOM
   componentWillUnmount() {

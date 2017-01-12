@@ -22108,10 +22108,6 @@
 	
 	var _ContestPreview2 = _interopRequireDefault(_ContestPreview);
 	
-	var _testData = __webpack_require__(/*! ../testData.json */ 181);
-	
-	var _testData2 = _interopRequireDefault(_testData);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22141,9 +22137,17 @@
 	  _createClass(App, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.setState({
-	        contests: _testData2.default.contests
-	      });
+	      var _this2 = this;
+	
+	      //ajax...
+	      fetch('/api/contests').then(function (resp) {
+	        return resp.json();
+	      }).then(function (resp) {
+	        // console.log(resp.contests);
+	        _this2.setState({
+	          contests: resp.contests
+	        });
+	      }).catch(console.error);
 	    }
 	    //This suggests the component is about to be unmounted from the DOM
 	
