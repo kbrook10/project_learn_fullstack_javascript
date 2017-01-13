@@ -29,11 +29,11 @@ import serverRender from  './serverRender';
 //Creating Routes
 server.get('/', (req, res) => {
   serverRender()
-    .then(content => {
+    .then(({initialMarkup, initialData}) => {
       res.render('index', {
-        content,
+        initialMarkup,
+        initialData
       });
-
     })
     .catch(console.error);
 });
@@ -45,11 +45,12 @@ server.use('/api', apiRouter);
 //This allows use to not worry about the about.html url here or using the fs module...Just move about.html to public...
 server.use(express.static('public'));
 server.use(express.static('sass'));
+
 //Use the sass library to have Node convert scss to css, placing the final css file into the public folder
-server.use(sassMiddleware({
-  src: path.join(__dirname, 'sass'),
-  dest: path.join(__dirname, 'public')
-}));
+// server.use(sassMiddleware({
+//   src: path.join(__dirname, 'sass'),
+//   dest: path.join(__dirname, 'public')
+// }));
 
 //<---- Defines port and host for server to listen to--------->
 //<----------------------------------------------------------->
