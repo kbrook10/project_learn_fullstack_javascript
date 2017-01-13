@@ -2,6 +2,9 @@ import React from 'react';
 import Header from './Header';
 import ContestList from './ContestList';
 
+//Create method to handle the backward navigation...
+const pushState = (obj, url) =>
+  window.history.pushState(obj, '', url);
 
 //This Creates the App Component
 class App extends React.Component {
@@ -17,20 +20,29 @@ class App extends React.Component {
   componentWillUnmount() {
     //clean out times and listeners here...
   }
+  //Function to fetch the contests...
+  fetchContest(contestId) {
+    pushState(
+      { currentContestId: contestId},
+      `/contest/${contestId}`
+    );
+  }
 
   render() {
     return (
       <div className="App">
         <Header message={ this.state.pageHeader } />
-        <ContestList contests={ this.state.contests } />
+        <ContestList
+          onContestClick={this.fetchContest}
+          contests={ this.state.contests } />
       </div>
     );
   }
 }
 
 //Define property types
-App.propTypes = {
-  initialContests: React.PropTypes.array
-};
+// App.propTypes = {
+//   initialContests: React.PropTypes.array,
+// };
 
 export default App;
