@@ -63,19 +63,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// import axios from 'axios';
-	
 	_reactDom2.default.render(_react2.default.createElement(_App2.default, { initialContests: window.initialData.contests }), document.getElementById('root'));
-	
-	//Option 2...
-	// axios.get('/api/contests')
-	//   .then(resp => {
-	//     ReactDom.render(
-	//       <App initialContests={resp.data.contests} />,
-	//       document.getElementById('root')
-	//     );
-	//   })
-	//   .catch(console.error);
 
 /***/ },
 /* 1 */
@@ -22118,36 +22106,38 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
-	  function App(props) {
+	  function App() {
+	    var _ref;
+	
+	    var _temp, _this, _ret;
+	
 	    _classCallCheck(this, App);
 	
-	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
 	
-	    _this.state = {
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
 	      pageHeader: 'Naming Contests',
 	      contests: _this.props.initialContests
-	    };
-	    return _this;
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
-	  //This suggests the component Mounted to the DOM
-	
 	
 	  _createClass(App, [{
 	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.setState({
-	        contests: this.props.initialContests
-	      });
-	    }
+	
+	    //This suggests the component Mounted to the DOM
+	    value: function componentDidMount() {}
 	    //This suggests the component is about to be unmounted from the DOM
 	
 	  }, {
 	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {}
+	    value: function componentWillUnmount() {
+	      //clean out times and listeners here...
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      debugger;
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'App' },
@@ -22195,6 +22185,10 @@
 	    { className: "Header text-center" },
 	    message
 	  );
+	};
+	
+	Header.propTypes = {
+	  message: _react2.default.PropTypes.string
 	};
 	
 	exports.default = Header;
