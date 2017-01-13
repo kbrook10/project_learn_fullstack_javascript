@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import ContestList from './ContestList';
 import Contest from './Contest';
+import * as api from '../api';
 
 //Create method to handle the backward navigation...
 const pushState = (obj, url) =>
@@ -27,11 +28,15 @@ class App extends React.Component {
       { currentContestId: contestId},
       `/contest/${contestId}`
     );
-    //Look up the contests here once provide url...
-    //Location is this.state.contests[contestId]
-    this.setState({
-      pageHeader: this.state.contests[contestId].contestName,
-      currentContestId: contestId
+    api.fetchContest(contestId).then(contest => {
+      this.setState({
+        pageHeader: contest.contestName,
+        currentContestId: contest.id,
+        contests: {
+          ...this.state.contests,
+          [contest.id]: contest
+        }
+      });
     });
   };
   currentContent() {
