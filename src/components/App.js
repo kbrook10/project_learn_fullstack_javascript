@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import ContestList from './ContestList';
+import Contest from './Contest';
 
 //Create method to handle the backward navigation...
 const pushState = (obj, url) =>
@@ -13,7 +14,7 @@ class App extends React.Component {
     contests: this.props.initialContests,
   };
   //This suggests the component Mounted to the DOM
-  componentDidMount(){
+  componentDidMount() {
 
   }
   //This suggests the component is about to be unmounted from the DOM
@@ -21,28 +22,39 @@ class App extends React.Component {
     //clean out times and listeners here...
   }
   //Function to fetch the contests...
-  fetchContest(contestId) {
+  fetchContest = (contestId) => {
     pushState(
       { currentContestId: contestId},
       `/contest/${contestId}`
     );
+    //Look up the contests here once provide url...
+    //Location is this.state.contests[contestId]
+    this.setState({
+      pageHeader: this.state.contests[contestId].contestName,
+      currentContestId: contestId
+    });
+  };
+  currentContent() {
+    if (this.state.currentContestId) {
+      return <Contest {...this.state.contests[this.state.currentContestId]} />;
+    }
+    return <ContestList
+      onContestClick={this.fetchContest}
+      contests={ this.state.contests } />;
   }
-
   render() {
     return (
       <div className="App">
         <Header message={ this.state.pageHeader } />
-        <ContestList
-          onContestClick={this.fetchContest}
-          contests={ this.state.contests } />
+        {this.currentContent()}
       </div>
     );
   }
 }
 
 //Define property types
-// App.propTypes = {
-//   initialContests: React.PropTypes.array,
-// };
+App.propTypes = {
+  initialContests: React.PropTypes.object,
+};
 
 export default App;
