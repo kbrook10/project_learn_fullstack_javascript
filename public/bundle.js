@@ -61,14 +61,10 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _testData = __webpack_require__(/*! ./testData.json */ 181);
-	
-	var _testData2 = _interopRequireDefault(_testData);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	//This renders the App Component to a location with ID of root in our view file.
-	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
+	_reactDom2.default.render(_react2.default.createElement(_App2.default, { initialContests: [] }), document.getElementById('root'));
 	
 	//Removing component from the DOM and rendering new element
 	// setTimeout(() => {
@@ -22127,7 +22123,7 @@
 	
 	    _this.state = {
 	      pageHeader: 'Naming Contests',
-	      contests: []
+	      contests: _this.props.initialContests
 	    };
 	    return _this;
 	  }
@@ -22157,6 +22153,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      debugger;
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'App' },
@@ -22245,38 +22242,6 @@
 	};
 	
 	exports.default = ContestPreview;
-
-/***/ },
-/* 181 */
-/*!***************************!*\
-  !*** ./src/testData.json ***!
-  \***************************/
-/***/ function(module, exports) {
-
-	module.exports = {
-		"contests": [
-			{
-				"id": 1,
-				"categoryName": "Business/Company",
-				"contestName": "Cognitive Building Bricks"
-			},
-			{
-				"id": 2,
-				"categoryName": "Magazine/Newsletter",
-				"contestName": "Educating people about sustainable food production"
-			},
-			{
-				"id": 3,
-				"categoryName": "Software Component",
-				"contestName": "Big Data Analytics for Cash Circulation"
-			},
-			{
-				"id": 4,
-				"categoryName": "Website",
-				"contestName": "Free programming books"
-			}
-		]
-	};
 
 /***/ }
 /******/ ]);

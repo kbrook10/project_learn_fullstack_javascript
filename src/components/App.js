@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       pageHeader: 'Naming Contests',
-      contests: [],
+      contests: this.props.initialContests,
     };
   }
   //This suggests the component Mounted to the DOM
@@ -29,6 +29,7 @@ class App extends React.Component {
   }
 
   render() {
+    debugger;
     return (
       <div className="App">
         <Header message={ this.state.pageHeader } />
