@@ -19,7 +19,7 @@ server.set('view engine', 'ejs');
 
 //<-------------- Importing ????? ---------------------------->
 //<----------------------------------------------------------->
-import './serverRender';
+import serverRender from  './serverRender';
 
 
 //<-------------- Creating Routes ---------------------------->
@@ -28,9 +28,14 @@ import './serverRender';
 //Express handles server side routing as well...It exposes an API to listen to certain routes...
 //Creating Routes
 server.get('/', (req, res) => {
-  res.render('index', {
-    content: '...'
-  });
+  serverRender()
+    .then(content => {
+      res.render('index', {
+        content,
+      });
+
+    })
+    .catch(console.error);
 });
 
 //<------------------ Middle Ware ---------------------------->
