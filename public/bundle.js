@@ -63,17 +63,19 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//This renders the App Component to a location with ID of root in our view file.
-	_reactDom2.default.render(_react2.default.createElement(_App2.default, { initialContests: [] }), document.getElementById('root'));
+	// import axios from 'axios';
 	
-	//Removing component from the DOM and rendering new element
-	// setTimeout(() => {
-	//   ReactDom.render(
-	//     <h2>........</h2>,
-	//     document.getElementById('root')
-	//   );
-	//
-	// }, 4000);
+	_reactDom2.default.render(_react2.default.createElement(_App2.default, { initialContests: window.initialData.contests }), document.getElementById('root'));
+	
+	//Option 2...
+	// axios.get('/api/contests')
+	//   .then(resp => {
+	//     ReactDom.render(
+	//       <App initialContests={resp.data.contests} />,
+	//       document.getElementById('root')
+	//     );
+	//   })
+	//   .catch(console.error);
 
 /***/ },
 /* 1 */
@@ -22133,17 +22135,9 @@
 	  _createClass(App, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
-	
-	      //ajax...
-	      fetch('/api/contests').then(function (resp) {
-	        return resp.json();
-	      }).then(function (resp) {
-	        // console.log(resp.contests);
-	        _this2.setState({
-	          contests: resp.contests
-	        });
-	      }).catch(console.error);
+	      this.setState({
+	        contests: this.props.initialContests
+	      });
 	    }
 	    //This suggests the component is about to be unmounted from the DOM
 	
