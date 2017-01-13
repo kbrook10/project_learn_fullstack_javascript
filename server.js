@@ -16,6 +16,12 @@ const server = express();
 //<----------------------------------------------------------->
 server.set('view engine', 'ejs');
 
+
+//<-------------- Importing ????? ---------------------------->
+//<----------------------------------------------------------->
+import './serverRender';
+
+
 //<-------------- Creating Routes ---------------------------->
 //<----------------------------------------------------------->
 
@@ -23,7 +29,7 @@ server.set('view engine', 'ejs');
 //Creating Routes
 server.get('/', (req, res) => {
   res.render('index', {
-    content: 'Hello Express and <em>EJS</em>!'
+    content: '...'
   });
 });
 
@@ -40,9 +46,9 @@ server.use(sassMiddleware({
   dest: path.join(__dirname, 'public')
 }));
 
-//<-------- Defines port server to listen to------------------>
+//<---- Defines port and host for server to listen to--------->
 //<----------------------------------------------------------->
 
-server.listen(config.port, () => {
+server.listen(config.port, config.host, () => {
   console.info('Express listening on port', config.port);
 });
